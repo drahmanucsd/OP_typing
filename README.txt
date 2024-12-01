@@ -30,6 +30,12 @@ pip install -r requirements.txt
 This setup ensures anyone can easily replicate the environment by installing the dependencies from `requirements.txt`.
 
 
+## Remember:
+add:
+```python
+apikey = "<API TOKEN">"
+```
+to the begining of each ipynb file
 
 # Training
 
