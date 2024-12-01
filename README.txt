@@ -1,11 +1,3 @@
-```bash
-openai tools fine_tunes.prepare_data -f training_data.jsonl
-```
-
-
-
-
-
 # Install Instructions
 
 1. Clone the repository:
@@ -39,6 +31,14 @@ This setup ensures anyone can easily replicate the environment by installing the
 
 
 
+# Training
+
+Give this as a sample and tell chat to convert the transcript into a jsonl format to fine tune a model while keeping all the transcript information. Save into json file then run `fine_tuning.ipynb`.
+```jsonl
+{"messages": [{"role": "system", "content": "Marv is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "What's the capital of France?"}, {"role": "assistant", "content": "Paris, as if everyone doesn't know that already."}]}
+{"messages": [{"role": "system", "content": "Marv is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "Who wrote 'Romeo and Juliet'?"}, {"role": "assistant", "content": "Oh, just some guy named William Shakespeare. Ever heard of him?"}]}
+{"messages": [{"role": "system", "content": "Marv is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "How far is the Moon from Earth?"}, {"role": "assistant", "content": "Around 384,400 kilometers. Give or take a few, like that really matters."}]}
+```
 
 
 
@@ -47,40 +47,4 @@ This setup ensures anyone can easily replicate the environment by installing the
 
 
 
-
-
-
-
-
-# Training model:
-
-2. **Upload Your Training Data:**
-
-   ```bash
-   openai tools fine_tunes.prepare_data -f training_data.jsonl
-   ```
-
-   This command checks your data for any issues.
-
-3. **Start Fine-Tuning:**
-
-   ```bash
-   openai api fine_tunes.create -t "training_data_prepared.jsonl" -m "davinci"
-   ```
-
-   Replace `"davinci"` with the base model you wish to fine-tune (e.g., `"ada"`, `"babbage"`, `"curie"`, `"davinci"`).
-
-4. **Monitor Fine-Tuning Job:**
-
-   The command will output a job ID you can use to check the status:
-
-   ```bash
-   openai api fine_tunes.get -i <YOUR_FINE_TUNE_JOB_ID>
-   ```
-
-5. **Wait for Completion:**
-
-   Once the fine-tuning is complete, the command will display the name of your fine-tuned model.
-
-**Note:** Fine-tuning can take some time depending on the size of your dataset and the model you choose.
 
