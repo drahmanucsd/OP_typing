@@ -28,9 +28,8 @@ On Windows use:
 pip install -r requirements.txt
 ```
 This setup ensures anyone can easily replicate the environment by installing the dependencies from `requirements.txt`.
-```bash
-export OPENAI_API_KEY='your-api-key'
-```
+5. Create a .env files:
+create a .env file and put "OPENAI_API_KEY=<your api key>" and save
 
 ## Remember:
 add:
